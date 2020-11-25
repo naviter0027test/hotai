@@ -1,9 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import API from './lib/api';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+
+        const options = {
+          url: 'test.json',
+          method: 'GET'
+        };
+
+        API.request(options)
+          .then((response) => {
+              console.log(response);
+          })
+          .catch((error) => {
+              console.log(error);
+          });
     }
 
     render() {
